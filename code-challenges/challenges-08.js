@@ -107,7 +107,16 @@ const courses = [
 const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
-  // write your code here
+
+  for (let i = 0; i < courses.length; i++) {
+    coursesName.push(courses[i].course);
+  }
+
+  for (let i = 0; i < courses.length; i++) {
+    for (let j = 0; j < courses.Students.length; j++) {
+      studentsName.push(courses.Students[i]);
+    }
+  }
 
   return { coursesName, studentsName };
 };
@@ -131,7 +140,19 @@ const getInfo = (arr) => {
 // ]
 
 const getStudents = (arr) => {
-  // write your code here
+  let stuArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let cour of courses) {
+      if (cour.Students.includes(arr[i])) {
+        let studObj = {
+          Student: `${arr[i]}`,
+          course: `${cour.course}`
+        }
+        stuArr.push(studObj);
+      }
+    }
+  }
+  return stuArr;
 };
 //  ------------------------------------------------------------------------------------------------------
 
