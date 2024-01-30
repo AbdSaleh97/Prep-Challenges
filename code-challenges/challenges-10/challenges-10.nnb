@@ -45,7 +45,7 @@
         {
             "language": "javascript",
             "source": [
-                "function compareTriplets(a, b) {\n    \n    let bobCounter = 0;\n    let aliceCounter = 0;\n    //assuming that we always have the same length for bob and alice\n    for (let i = 0; i < a.length; i++) {\n        if (a[i] > b[i])\n        {\n            aliceCounter++;\n        }\n        else if (b[i] > a[i])\n        {\n            bobCounter++;\n        }\n    }\n    \n    return [aliceCounter,bobCounter];\n}"
+                "function compareTriplets(a, b) {\n    \n    let bobCounter = 0;\n    let aliceCounter = 0;\n    //assuming that we always have the same length for bob and alice\n    for (let i = 0; i < a.length; i++) {\n        if (a[i] > b[i])\n        {\n            aliceCounter++;\n        }\n        else if (b[i] > a[i])\n        {\n            bobCounter++;\n        }\n    }\n    return [aliceCounter,bobCounter];\n}"
             ],
             "outputs": []
         },
@@ -59,7 +59,7 @@
         {
             "language": "javascript",
             "source": [
-                ""
+                "//i got help from this kind gentelman\n//https://www.youtube.com/watch?v=L83yEmlW3qM\nlet max = 0;\nlet max_id = 6;\nlet store = new Array(6).fill(0);\nfor (const num of arr) {\n    store[num]++;\n    if (store[num] > max) {\n        max = store[num];\n        max_id = num;\n    }\n    else if (max === store[num] && num < max_id) {\n        max_id = num;\n    }\n}\nreturn max_id;"
             ],
             "outputs": []
         }
