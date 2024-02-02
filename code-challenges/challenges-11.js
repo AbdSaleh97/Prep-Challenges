@@ -17,7 +17,7 @@
 // 
 
 function square(arr) {
-    let squareArr = arr.map((x) => x * x);
+    let squareArr = arr.map(x => x * x);
     return squareArr;
 }
 // -------------------------------------------------------------------------------------------------------
@@ -125,13 +125,8 @@ function fullName(arr) {
 
 function gradesAvg(arr) {
     let newArray = arr.map(person => {
-        let avg = person.gradsList.reduce((sum, grade) => sum + grade) / person.gradsList.length;
-        return {
-            firstName: person.firstName,
-            lastName: person.lastName,
-            gradsList: person.gradsList,
-            avg: avg
-        };
+        person.avg = person.gradsList.reduce((sum, grade) => sum + grade) / person.gradsList.length;
+        return person;
     });
     return newArray;
 }
@@ -208,15 +203,8 @@ function gradesAvg(arr) {
 
     function studentsResult(arr) {
         let newArray = arr.map(person => {
-            let avg = person.gradsList.reduce((sum, grade) => sum + grade) / person.gradsList.length;
-            let pass = (avg >= 50);
-            return {
-                firstName: person.firstName,
-                lastName: person.lastName,
-                gradsList: person.gradsList,
-                avg: avg,
-                pass: pass
-            };
+            person.result = (person.avg >= 50) ? 'Passed' : 'Failed';
+            return person;
         });
         return newArray;
     }
