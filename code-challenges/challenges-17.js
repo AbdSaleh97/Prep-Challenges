@@ -12,29 +12,24 @@
 
 // Input: 50, 9
 // Output: [50, 41, 32, 23, 14, 5, -4, 5, 14, 23, 32, 41, 50]
-//
 
 const recursionPattern = (int1, int2) => {
     const pattern = [];
     let flag = true;
-
-    const generateRecursively = (current) => {
-        if (current >= 0 && flag) {
-            pattern.push(current);
-            if(current < 0)
-            {
+    const generateRecursively = (current,arr) => {
+        if (flag) {
+            arr.push(current);
+            if(current - int2 < 0){
                 flag = false;
             }
-            generateRecursively(current - int2);
-        } else if (current < 0 && flag === false) {
-            pattern.push(current);
-            generateRecursively(current + int2);
+               return generateRecursively(current - int2,arr);
+        } else if (current <= int1 && flag === false) {
+            arr.push(current);
+            return generateRecursively(current + int2,arr);
         }
+        return arr;
     };
-
-    generateRecursively(int1);
-
-    return pattern;
+   return  generateRecursively(int1,pattern);
 };
 // -------------------------------------------------------------------------------------------------------
 
@@ -53,15 +48,7 @@ const recursionPattern = (int1, int2) => {
 // 
 
 const filterLinks = (str) => {
-    const startIndex = str.indexOf('href="') + 6;
-    const endIndex = str.indexOf('"', startIndex);
-  
-    const url = str.substring(startIndex, endIndex);
-    const http = url.indexOf("://");
-    if (http !== -1) {
-      return url.substring(http + 3);
-    }
-    return url;
+    let regex = 
   };
 // -------------------------------------------------------------------------------------------------------
 
@@ -80,7 +67,6 @@ const filterLinks = (str) => {
 //
 
 const isPalindrome = (str) => {
-    
     const cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
     return cleanedStr === cleanedStr.split('').reverse().join('');
 };
